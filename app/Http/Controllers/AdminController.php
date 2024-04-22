@@ -17,20 +17,18 @@ class AdminController extends Controller
         return view('Admin.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $store)
     {
         $request->validate([
             'name'=>'required',
             'price'=>'required',
-            'description'=>'required',
             'stock'=>'required',
             'image'=>'required',
         ]);
 
-        $store->Products::create([
+        $store->Product::create([
             'name' => $request->name,
             'price' => $request->price,
-            'description'=> $request->description,
             'stock' => $request->stock,
             'image' => $request->image,
         ]);

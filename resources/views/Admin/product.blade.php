@@ -124,7 +124,7 @@
                                       </div>
                                       <!-- /.card-header -->
                                       <!-- form start -->
-                                      <form action="" method="post">
+                                      <form action="{{route ('Admin.store')}}" method="post">
                                           @csrf
                                         <div class="card-body">
                                          <div class="form-group">
@@ -167,7 +167,7 @@
                                 <table class="table text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">No</th>
+                                            {{-- <th class="border-top-0">No</th> --}}
                                             <th class="border-top-0">Name</th>
                                             <th class="border-top-0">Price</th>
                                             <th class="border-top-0">Stock</th>
@@ -176,13 +176,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($Product as $p)
+
+                                        @endforeach
                                         <tr>
+                                            <td>{{$p->name}}</td>
+                                            <td>{{$p->price}}</td>
+                                            <td>{{$p->stock}}</td>
+                                            <td>{{$p->image}}</td>
                                             <td>-</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>-</td>
+                                            {{-- <td>-</td> --}}
                                         </tr>
                                     </tbody>
                                 </table>
